@@ -5,8 +5,12 @@ services:
     container_name: todos_dynamodb
     hostname: dynamodb
     restart: always
-    volumes:
-      -  ./.dynamodb:/home/dynamodblocal/data
     ports:
       - 8000:8000
-    command: "-jar DynamoDBLocal.jar -sharedDb -dbPath /home/dynamodblocal/data/"
+    volumes:
+      - dynamodata:/home/dynamodblocal
+    working_dir: /home/dynamodblocal
+    command: "-jar DynamoDBLocal.jar -sharedDb -dbPath ."
+  
+volumes:
+  dynamodata: {}

@@ -31,7 +31,7 @@ http://localhost:3000/dev
   docker-compose start
 
   # Start DynamoDB
-  yarn dynamo:start
+  yarn dynamodb:start
 
   # Run project
   yarn dev

@@ -44,13 +44,34 @@ functions:
           path: /saveTodo/{user_id}
           method: POST
           cors: true
+  updateTodo:
+    handler: src/functions/updateTodo.handle
+    events:
+      - http:
+          path: /updateTodo/{user_id}/{todo_id}
+          method: PUT
+          cors: true
+  updateTodoDone:
+    handler: src/functions/updateTodoDone.handle
+    events:
+      - http:
+          path: /updateTodoDone/{user_id}/{todo_id}
+          method: PATCH
+          cors: true
+  deleteTodo:
+    handler: src/functions/deleteTodo.handle
+    events:
+      - http:
+          path: /deleteTodo/{user_id}/{todo_id}
+          method: DELETE
+          cors: true
   
 resources:
   Resources:
     dbCertificateUsers:
       Type: AWS::DynamoDB::Table      
       Properties:
-        TableName: users_todos
+        TableName: users
         ProvisionedThroughput:
           ReadCapacityUnits: 5
           WriteCapacityUnits: 5
