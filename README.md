@@ -5,11 +5,6 @@ Instruction: [Construindo com serverless](https://www.notion.so/Desafio-01-Const
 ## Base URL
 http://localhost:3000/dev
 
-## Functions
-
-* [<span style="color:#663399">GET</span>] /todos/{user_id}
-* [<span style="color:#79c900">POST</span>] /todos/{user_id}
-
 ## Project commands
 ### Prepare project
 
@@ -35,4 +30,21 @@ http://localhost:3000/dev
 
   # Run project
   yarn dev
+```
+
+### Prepare deploy
+
+```bash
+  # Remove items created before
+  sls remove
+
+  # Configure credentials
+  serverless config credentials --provider aws --key=<Private Key> --secret <Secret Private Key> -o
+```
+
+### Deploy app
+
+```bash
+  # Run build
+  yarn deploy
 ```
